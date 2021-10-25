@@ -71,6 +71,7 @@ Array of hashes
 | deposit(0.001)             | raise error | cannot have a float argument with more than 2 d.p in deposit    |
 | withdrawal(0.001)          | raise error | cannot have a float argument with more than 2 d.p in withdrawal |
 
+DONE
 Input:
 Output: "date || credit || debit || balance"
 

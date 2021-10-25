@@ -7,16 +7,21 @@ class BankAccount
   end
 
   def deposit(amount)
-    fail "Invalid deposit" if amount == 0 || amount.class == String
+    fail "Invalid deposit" if valid(amount)
     @balance += amount
   end
 
   def withdrawal(amount)
-    fail "Invalid withdrawal" if amount == 0 || amount.class == String
+    fail "Invalid withdrawal" if valid(amount)
     @balance -= amount
   end
 
   def printstatement
     "date || credit || debit || balance"
+  end
+
+  private
+  def valid(amount)
+    amount == 0 || amount.class == String
   end
 end
