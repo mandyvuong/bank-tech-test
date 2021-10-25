@@ -12,6 +12,7 @@ class BankAccount
   end
 
   def withdrawal(amount)
+    fail "Invalid withdrawal" if amount == 0
     @balance -= amount
   end
 

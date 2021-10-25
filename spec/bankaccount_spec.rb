@@ -29,5 +29,8 @@ describe BankAccount do
       subject.withdrawal(10)
       expect(subject.balance).to eq(90)
     end
+    it 'raises an error with zero withdrawal' do
+      expect{subject.withdrawal(0)}.to raise_error "Invalid withdrawal"
+    end
   end
 end
