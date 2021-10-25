@@ -6,6 +6,10 @@ class BankAccount
     @balance = 0
   end
 
+  def deposit(amount)
+    @balance += amount
+  end
+
   def printstatement
     "date || credit || debit || balance"
   end
