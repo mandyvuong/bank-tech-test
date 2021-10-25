@@ -18,6 +18,9 @@ describe BankAccount do
       subject.deposit(10)
       expect(subject.balance).to eq(10)
     end
+    it 'raises an error with zero deposit' do
+      expect{subject.deposit(0)}.to raise_error "Invalid deposit"
+    end
   end
 
   describe '.withdrawal' do
