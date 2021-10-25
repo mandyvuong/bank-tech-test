@@ -1,5 +1,5 @@
 class BankAccount
-  def prinstatement
+  def printstatement
     "date || credit || debit || balance"
   end
 end
