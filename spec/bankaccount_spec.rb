@@ -19,4 +19,12 @@ describe BankAccount do
       expect(subject.balance).to eq(10)
     end
   end
+
+  describe '.withdrawal' do
+    it 'can make a deposit, followed by withdrawal' do
+      subject.deposit(100)
+      subject.withdrawal(10)
+      expect(subject.balance).to eq(90)
+    end
+  end
 end
