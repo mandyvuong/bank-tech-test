@@ -66,7 +66,7 @@ Array of hashes
 | deposit(100), withdraw(10) | balance 90  | makes deposit - DONE                                            |
 | deposit(0)                 | raise error | cannot deposit zero amount - DONE                               |
 | withdrawal(0)              | raise error | cannot withdraw zero amount - DONE                              |
-| deposit('string')          | raise error | cannot have a string argument in deposit                        |
+| deposit('string')          | raise error | cannot have a string argument in deposit - DONE                 |
 | withdrawal('string')       | raise error | cannot have a string argument in withdrawal                     |
 | deposit(0.001)             | raise error | cannot have a float argument with more than 2 d.p in deposit    |
 | withdrawal(0.001)          | raise error | cannot have a float argument with more than 2 d.p in withdrawal |

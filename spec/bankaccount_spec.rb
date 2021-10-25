@@ -35,5 +35,8 @@ describe BankAccount do
     it 'raises an error with zero withdrawal' do
       expect{subject.withdrawal(0)}.to raise_error "Invalid withdrawal"
     end
+    it 'raises an error with string withdrawal' do
+      expect{subject.withdrawal('this is a string')}.to raise_error "Invalid withdrawal"
+    end
   end
 end

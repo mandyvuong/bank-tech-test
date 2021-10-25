@@ -12,7 +12,7 @@ class BankAccount
   end
 
   def withdrawal(amount)
-    fail "Invalid withdrawal" if amount == 0
+    fail "Invalid withdrawal" if amount == 0 || amount.class == String
     @balance -= amount
   end
 
