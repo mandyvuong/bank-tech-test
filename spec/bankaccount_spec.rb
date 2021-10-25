@@ -6,4 +6,10 @@ describe BankAccount do
       expect(subject.printstatement).to eq "date || credit || debit || balance"
     end
   end
+
+  describe '.balance' do
+    it 'has a balance of zero' do
+      expect(subject.balance).to eq(0)
+    end
+  end
 end
