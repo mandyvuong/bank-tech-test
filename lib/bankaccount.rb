@@ -7,7 +7,7 @@ class BankAccount
   end
 
   def deposit(amount)
-    fail "Invalid deposit" if amount == 0
+    fail "Invalid deposit" if amount == 0 || amount.class == String
     @balance += amount
   end
 

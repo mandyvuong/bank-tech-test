@@ -21,6 +21,9 @@ describe BankAccount do
     it 'raises an error with zero deposit' do
       expect{subject.deposit(0)}.to raise_error "Invalid deposit"
     end
+    it 'raises an error with string deposit' do
+      expect{subject.deposit('this is a string')}.to raise_error "Invalid deposit"
+    end
   end
 
   describe '.withdrawal' do

@@ -62,10 +62,10 @@ Array of hashes
 
 | input                      | output      | description                                                     |
 | -------------------------- | ----------- | --------------------------------------------------------------- |
-| deposit(10)                | balance 10  | makes deposit                                                   |
-| deposit(100), withdraw(10) | balance 90  | makes deposit                                                   |
-| deposit(0)                 | raise error | cannot deposit zero amount                                      |
-| withdrawal(0)              | raise error | cannot withdraw zero amount                                     |
+| deposit(10)                | balance 10  | makes deposit - DONE                                            |
+| deposit(100), withdraw(10) | balance 90  | makes deposit - DONE                                            |
+| deposit(0)                 | raise error | cannot deposit zero amount - DONE                               |
+| withdrawal(0)              | raise error | cannot withdraw zero amount - DONE                              |
 | deposit('string')          | raise error | cannot have a string argument in deposit                        |
 | withdrawal('string')       | raise error | cannot have a string argument in withdrawal                     |
 | deposit(0.001)             | raise error | cannot have a float argument with more than 2 d.p in deposit    |
