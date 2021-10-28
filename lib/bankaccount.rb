@@ -29,7 +29,7 @@ class BankAccount
   end
 
   private
-  
+
   def valid(amount)
     amount == 0 || amount.instance_of?(String)
   end
@@ -45,7 +45,7 @@ class BankAccount
   end
 
   def formatting(value)
-    value.nil? ? '' : format('%.2f', value) + ' '
+    value.nil? ? '' : "#{format('%.2f', value)} "
   end
 
   def format_balance(value)
