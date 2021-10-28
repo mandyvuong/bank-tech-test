@@ -11,7 +11,7 @@ class BankAccount
   def deposit(amount)
     fail "Invalid deposit" if valid(amount)
     @balance += amount
-    @transactions << { date: CURRENT_DATE, credit: amount, debit: nil, balance: @balance }
+    @transactions.unshift({ date: CURRENT_DATE, credit: amount, debit: nil, balance: @balance })
   end
 
   def withdrawal(amount)

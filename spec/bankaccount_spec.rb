@@ -10,6 +10,12 @@ describe BankAccount do
       today = BankAccount::CURRENT_DATE
       expect{subject.printstatement}.to output("date || credit || debit || balance\n#{today} || 1000.00 || || 1000.00\n").to_stdout
     end
+    it '2 deposits prints statement body' do
+      subject.deposit(1000)
+      subject.deposit(2000)
+      today = BankAccount::CURRENT_DATE
+      expect{subject.printstatement}.to output("date || credit || debit || balance\n#{today} || 2000.00 || || 3000.00\n#{today} || 1000.00 || || 1000.00\n").to_stdout
+    end
   end
 
   describe '.balance' do
