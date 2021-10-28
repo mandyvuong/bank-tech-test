@@ -1,7 +1,8 @@
 class BankAccount
 
   attr_reader :balance
-  CURRENT_DATE = Time.now.strftime("%d/%m/%Y")
+
+  CURRENT_DATE = Time.now.strftime('%d/%m/%Y')
 
   def initialize
     @balance = 0
@@ -9,38 +10,45 @@ class BankAccount
   end
 
   def deposit(amount)
-    fail "Invalid deposit" if valid(amount)
+    raise 'Invalid deposit' if valid(amount)
+
     @balance += amount
     @transactions.unshift({ date: CURRENT_DATE, credit: amount, debit: nil, balance: @balance })
   end
 
   def withdrawal(amount)
-    fail "Invalid withdrawal" if valid(amount)
+    raise 'Invalid withdrawal' if valid(amount)
+
     @balance -= amount
     @transactions.unshift({ date: CURRENT_DATE, credit: nil, debit: amount, balance: @balance })
   end
 
   def printstatement
     statement_header
-    @transactions.each { |transaction|
-      puts "#{transaction[:date]} || #{format(transaction[:credit])}|| #{format(transaction[:debit])}|| #{format_balance(transaction[:balance])}"
-    }
+    statement_body(@transactions)
   end
 
   private
+  
   def valid(amount)
-    amount == 0 || amount.class == String
+    amount == 0 || amount.instance_of?(String)
   end
 
   def statement_header
-    puts "date || credit || debit || balance"
+    puts 'date || credit || debit || balance'
   end
 
-  def format(value)
-    value.nil? ? '' : '%.2f' % value + ' '
+  def statement_body(body)
+    body.each do |row|
+      puts "#{row[:date]} || #{formatting(row[:credit])}|| #{formatting(row[:debit])}|| #{format_balance(row[:balance])}"
+    end
+  end
+
+  def formatting(value)
+    value.nil? ? '' : format('%.2f', value) + ' '
   end
 
   def format_balance(value)
-    '%.2f' % value
+    format('%.2f', value)
   end
 end
