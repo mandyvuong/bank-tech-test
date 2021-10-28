@@ -84,7 +84,7 @@ Output: date || credit || debit || balance\n13/01/2023 || 2000.00 || || 3000.00\
 Input: Deposit(1000), Deposit(2000), Withdrawal(500)
 Output: date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00
 
-Time.now.strftime("%m/%d/%Y") - date format
+Time.now.strftime("%d/%m/%Y") - date format
 arr.unshift(0) #=> [0, 1, 2, 3, 4, 5, 6] - unshift will add a new item to the beginning of an array.
 
 ACT TDD on time

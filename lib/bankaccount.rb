@@ -17,12 +17,13 @@ class BankAccount
   def withdrawal(amount)
     fail "Invalid withdrawal" if valid(amount)
     @balance -= amount
+    @transactions.unshift({ date: CURRENT_DATE, credit: nil, debit: amount, balance: @balance })
   end
 
   def printstatement
     statement_header
     @transactions.each { |transaction|
-      puts "#{transaction[:date]} || #{'%.2f' % transaction[:credit]} || #{transaction[:debit]}|| #{'%.2f' % transaction[:balance]}"
+      puts "#{transaction[:date]} || #{format(transaction[:credit])}|| #{format(transaction[:debit])}|| #{'%.2f' % transaction[:balance]}"
     }
   end
 
@@ -33,5 +34,9 @@ class BankAccount
 
   def statement_header
     puts "date || credit || debit || balance"
+  end
+
+  def format(value)
+    value.nil? ? '' : '%.2f' % value + ' '
   end
 end
