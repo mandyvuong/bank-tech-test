@@ -23,7 +23,7 @@ class BankAccount
   def printstatement
     statement_header
     @transactions.each { |transaction|
-      puts "#{transaction[:date]} || #{format(transaction[:credit])}|| #{format(transaction[:debit])}|| #{'%.2f' % transaction[:balance]}"
+      puts "#{transaction[:date]} || #{format(transaction[:credit])}|| #{format(transaction[:debit])}|| #{format_balance(transaction[:balance])}"
     }
   end
 
@@ -38,5 +38,9 @@ class BankAccount
 
   def format(value)
     value.nil? ? '' : '%.2f' % value + ' '
+  end
+
+  def format_balance(value)
+    '%.2f' % value
   end
 end
