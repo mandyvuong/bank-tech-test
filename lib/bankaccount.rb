@@ -17,11 +17,15 @@ class BankAccount
   end
 
   def printstatement
-    "date || credit || debit || balance"
+    statement_header
   end
 
   private
   def valid(amount)
     amount == 0 || amount.class == String
+  end
+
+  def statement_header
+    puts "date || credit || debit || balance"
   end
 end
