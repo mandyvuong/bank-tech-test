@@ -3,7 +3,12 @@ require 'bankaccount'
 describe BankAccount do
   describe '.printstatement' do
     it 'prints the header of statement' do
-      expect{subject.printstatement}.to output(("date || credit || debit || balance\n")).to_stdout
+      expect{subject.printstatement}.to output("date || credit || debit || balance\n").to_stdout
+    end
+    it 'deposit money and prints statement body' do
+      subject.deposit(1000)
+      today = BankAccount::CURRENT_DATE
+      expect{subject.printstatement}.to output("date || credit || debit || balance\n#{today} || 1000.00 || || 1000.00\n").to_stdout
     end
   end
 

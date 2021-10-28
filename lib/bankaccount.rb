@@ -1,14 +1,17 @@
 class BankAccount
 
   attr_reader :balance
+  CURRENT_DATE = Time.now.strftime("%d/%m/%Y")
 
   def initialize
     @balance = 0
+    @transactions = []
   end
 
   def deposit(amount)
     fail "Invalid deposit" if valid(amount)
     @balance += amount
+    @transactions << { date: CURRENT_DATE, credit: amount, debit: nil, balance: @balance }
   end
 
   def withdrawal(amount)
@@ -18,6 +21,9 @@ class BankAccount
 
   def printstatement
     statement_header
+    @transactions.each { |transaction|
+      puts "#{transaction[:date]} || #{'%.2f' % transaction[:credit]} || #{transaction[:debit]}|| #{'%.2f' % transaction[:balance]}"
+    }
   end
 
   private
